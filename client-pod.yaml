@@ -1,0 +1,12 @@
+apiVersion: v1 # Which predefined object set do we want to utilize
+kind: Pod # Which type of object do we want to make
+metadata:
+  name: client-pod # This is the name pf the pod - mostly used for logging purposes
+  labels:
+    component: web # Correponds to the "web" component in the spec/selector section of the client-node-port.yaml file
+spec:
+  containers:
+    - name: client
+      image: stephengrider/multi-client
+      ports:
+        - containerPort: 3000
