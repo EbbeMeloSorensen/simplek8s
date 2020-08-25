@@ -1,4 +1,4 @@
-apiVersion: v1 # Which predefined object set do we want to utilize
+apiVersion: v1 # Which predefined object set do we want to utilize (the one that includes the Servie object kind)
 kind: Service # Which type of object do we want to make
 metadata:
   name: client-node-port # This is the name of the object - mostly used for logging purposes
@@ -9,4 +9,4 @@ spec:
       targetPort: 3000 # The port of the object (specified by the selector) that we want to open up traffic to
       nodePort: 31515 # The port we are going to access from a Browser in order to test the application hosted by the k8s cluster
   selector:
-    component: web # Corresponds to the "web" component in the metadata/labels section of the client-node-port.yaml file
+    component: web # Corresponds to the "web" component in the metadata/labels section of the client-pod.yaml file,

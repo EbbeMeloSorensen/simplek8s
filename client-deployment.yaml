@@ -1,0 +1,19 @@
+apiVersion: apps/v1 # Which predefined object set do we want to utilize (the one that includes the Deployment object kind)
+kind: Deployment # Which type of object do we want to make
+metadata:
+  name: client-deployment # This is the name of the object
+spec:
+  replicas: 1 # The number of pods that this deployment is supposed to make
+  selector:
+    matchLabels: # Resembles the labels section of the client-pod.yaml file. Used for identifying the pods controlled by this deployment
+      component: web
+  template: # The template section contains the configuration that is going to be used for every single pod that is going to be created by this deployment
+    metadata:
+      labels:
+        component: web # Correponds to the "web" component in the spec/selector section of the client-node-port.yaml file and also in the matchlabels section in this file
+    spec:
+      containers:
+        - name: client
+          image: stephengrider/multi-client
+          ports:
+            - containerPort: 3000

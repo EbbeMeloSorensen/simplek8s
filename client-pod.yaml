@@ -1,7 +1,7 @@
-apiVersion: v1 # Which predefined object set do we want to utilize
+apiVersion: v1 # Which predefined object set do we want to utilize (the one that includes the Pod object kind)
 kind: Pod # Which type of object do we want to make
 metadata:
-  name: client-pod # This is the name pf the pod - mostly used for logging purposes
+  name: client-pod # This is the name of the object - mostly used for logging purposes
   labels:
     component: web # Correponds to the "web" component in the spec/selector section of the client-node-port.yaml file
 spec:
